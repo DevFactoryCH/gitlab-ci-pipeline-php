@@ -16,8 +16,8 @@ USER root
 WORKDIR /tmp
 
 # COPY INSTALL SCRIPTS
-COPY ./php/scripts/*.sh /tmp/
-RUN chmod +x /tmp/*.sh
+COPY ./php/scripts/*.sh ./tmp/
+RUN chmod +x ./tmp/*.sh
 
 # Install
 RUN bash ./packages.sh \
@@ -28,7 +28,7 @@ RUN bash ./packages.sh \
     && adduser --disabled-password --gecos "" $IMAGE_USER && \
        echo "$IMAGE_USER  ALL = ( ALL ) NOPASSWD: ALL" >> /etc/sudoers && \
        mkdir -p /var/www/html && \
-       chown -R $IMAGE_USER:$IMAGE_USER /var/www $HOME /tmp
+       chown -R $IMAGE_USER:$IMAGE_USER /var/www $HOME ./tmp
 
 # Goss
 RUN curl -fsSL https://goss.rocks/install | GOSS_VER=v${GOSS_VERSION} sh
