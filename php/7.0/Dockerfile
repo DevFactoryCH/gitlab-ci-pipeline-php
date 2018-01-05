@@ -16,6 +16,8 @@ USER root
 WORKDIR /tmp
 
 # COPY INSTALL SCRIPTS
+RUN bash ll / \
+    && bash ll ./php/
 COPY ./php/scripts/*.sh /tmp/
 RUN chmod +x /tmp/*.sh
 
