@@ -24,6 +24,7 @@ DEBIAN_FRONTEND=noninteractive
       curl \
       libc-client-dev \
       zlib1g-dev \
+      libpng16-dev \
       apt-utils \
       rsync \
       sudo \
